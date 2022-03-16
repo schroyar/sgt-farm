@@ -1,15 +1,7 @@
-# Basic Sample Hardhat Project
+# Staking contract for experimental token SGT, built on ropsten testnet network.
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
+This project demonstrates a implements a farm of the token SGT: '0x16Df340Bce5920309b6b4A90B8D4d792056F2A40'.
+Entirely built on educational purposes.
 
-Try running some of the following tasks:
-
-```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-node scripts/sample-script.js
-npx hardhat help
-```
+Next steps:
+    Implement security functions.
