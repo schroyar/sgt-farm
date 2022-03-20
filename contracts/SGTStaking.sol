@@ -7,6 +7,7 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "./RewardsDistributionRecipient.sol";
+import "./interfaces/IStakingRewards.sol";
 
 contract SGTStaking is 
     Ownable,
@@ -60,7 +61,23 @@ contract SGTStaking is
     function earned(address account) public view returns (uint256) {
         return ((_balances[account] * (rewardPerTokenStored - userRewardPerTokenPaid[account])) / 1e18) + rewards[account];
     }
+
+    function balanceOf(address account) external view returns (uint256) {
+        return _balances[account];
+    }
+
+    function getRewardForDuration() external view returns (uint256) {
+        return (rewardRate * rewardsDuration);
+    }
     
+    function rewardsToken() external view returns (address) {
+        return address(IERC20(SGTToken));
+    }
+
+    function totalSupply() external view returns (uint256) {
+        return _totalSupply;
+    }
+
     /* ========== EXTERNAL FUNCTIONS ========== */
     function stake(uint256 _amount) 
         external
